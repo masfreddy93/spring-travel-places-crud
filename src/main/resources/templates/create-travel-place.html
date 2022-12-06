@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- Bootstrap CSS -->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+</head>
+
+
+<body class="container">
+	<a 
+		class="btn btn-danger mt-3 mb-5"
+		th:href="@{/}"
+	>
+		Home
+	</a>
+	<h1 class="mb-2">Create Travel Place</h1>
+	
+	<form
+		method="POST"
+		action="/travel-place/create"
+	>
+	
+		<label>Name</label>
+		<input type="text" name="name">
+		<br>
+		<label>Description</label>
+		<input type="text" name="description">
+		<br>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	
+</body>
+</html>

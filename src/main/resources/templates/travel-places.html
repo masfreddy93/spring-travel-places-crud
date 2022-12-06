@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- Bootstrap CSS -->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+</head>
+
+
+<body class="container">
+	<a 
+		class="btn btn-danger mt-3 mb-5"
+		href="/"
+	>
+		Home
+	</a>
+	<h1 class="mb-3">Travel Places</h1>
+	<a 
+		class="btn btn-primary mb-2"
+		href="/travel-place/create"
+	>
+		Create
+	</a>
+	<ul>
+		<li
+			th:each="tp : ${tps}"
+			th:object="${tp}"
+			class="mb-3"
+		>
+			[[*{id}]] - 
+			<a 
+				th:href="@{/travel-place/{id} (id=*{id})}"
+			>
+				[[*{name}]]
+			</a>
+			: [[*{description}]]
+			<a 
+				class="btn btn-warning ms-3"
+				th:href="@{/travel-place/update/{id} (id=*{id})}"
+			>
+				Update
+			</a>
+			<a 
+				class="btn btn-danger ms-3"
+				th:href="@{/travel-place/delete/{id} (id=*{id})}"
+			>
+				Delete
+			</a>
+		</li>
+	</ul>
+</body>
+</html>
